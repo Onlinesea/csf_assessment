@@ -7,7 +7,7 @@ import { Restaurant, Comment } from './models'
 @Injectable()
 export class RestaurantService {
 
-
+	 BASE_URL="http://alluring-relation-production.up.railway.app"
 
 	constructor(private http:HttpClient){}
 	// TODO Task 2 
@@ -19,7 +19,7 @@ export class RestaurantService {
 		console.info("starting service")
 
 		return lastValueFrom(
-			this.http.get<any>('/api/cuisines')
+			this.http.get<any>(this.BASE_URL+'/api/cuisines')
 		)
 	}
 
@@ -30,7 +30,7 @@ export class RestaurantService {
 	public getRestaurantsByCuisine(cuisine:string):Promise<string[]>{
 		// Implememntation in here
 		return firstValueFrom(
-				this.http.get<string[]>(`/api/${cuisine}/restaurants`));
+				this.http.get<string[]>(this.BASE_URL+`/api/${cuisine}/restaurants`));
 	}
 	
 	// TODO Task 4
@@ -41,7 +41,7 @@ export class RestaurantService {
 		// Implememntation in here
 
 		return firstValueFrom(
-			this.http.get<Restaurant>(`/restaurant/${restaurantId}`)
+			this.http.get<Restaurant>(this.BASE_URL+`/restaurant/${restaurantId}`)
 		)
 	}
 
@@ -51,7 +51,7 @@ export class RestaurantService {
 	public postComment(comment: Comment): Promise<any> {
 		// Implememntation in here
 		return firstValueFrom(
-			this.http.post<any>('/api/comments', comment));
+			this.http.post<any>(this.BASE_URL+'/api/comments', comment));
 		 
 	}
 }
