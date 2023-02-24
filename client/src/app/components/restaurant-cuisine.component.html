@@ -1,0 +1,8 @@
+<p>restaurant-cuisine works!</p>
+<table>
+    <tr *ngFor="let r of restaurants" [routerLink]="['/restaurant',r]">
+        <td>{{r}}</td>
+    </tr>
+</table>
+
+<button type="button" [routerLink]="['/']">Back</button>

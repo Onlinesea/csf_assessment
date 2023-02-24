@@ -1,0 +1,3 @@
+TODO: Task 1 - Write the mongo import command here
+
+mongoimport --uri=mongodb://${{ MONGOUSER }}:${{ MONGOPASSWORD }}@${{ MONGOHOST }}:${{ MONGOPORT }}/?authSource=admin -dcsfTest -crestaurants --jsonArray "D:\Visa\VisaWorkshop\AngularWorkshop\Assessment\csf-assessment-template\restaurants.json"

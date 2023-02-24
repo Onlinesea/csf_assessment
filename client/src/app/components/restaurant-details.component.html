@@ -1,0 +1,38 @@
+<p>restaurant-details works!</p>
+<table>
+    <tr>
+        <td>{{restaurant.restaurantId}}</td>
+        <td>{{restaurant.name}}</td>
+        <td>{{restaurant.cuisine}}</td>
+        <td>{{restaurant.address}}</td>
+        <td>{{restaurant.coordinates}}</td>
+    </tr>
+</table>
+<form [formGroup]="commentForm" (ngSubmit)="processComment()">
+    <table>
+        <tr>
+            Name:
+          <input type="text" size="50" id="name" formControlName="name" >
+            
+        </tr>
+        <tr>
+            Rating
+            <select formControlName="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </tr>
+        <tr>
+            Comments:
+        <td>
+            
+          <textarea formcControlName="text" id="comments" cols="40" rows="5"></textarea>
+        </tr>
+    </table>
+</form>
+
+
+<button type="button" [routerLink]="['/restaurants',restaurant.cuisine]">Back</button>
